@@ -12,7 +12,7 @@ const queryClient = new QueryClient({
       refetchOnWindowFocus: false,
       refetchOnmount: false,
       refetchOnReconnect: false,
-      staleTime: twentyFourHoursInMs*100
+      staleTime: twentyFourHoursInMs * 100
     }
   }
 })
@@ -33,8 +33,8 @@ function App () {
           <NavBar />
           <AppContainer>
             <DataProvider
-              default_data_url="./data"
-              default_tiles_url='./tiles/Local_Authority_Districts__December_2019__Boundaries_UK_BUC.json'
+              default_data_url="http://covince.vercel.app/data"
+              default_tiles_url='http://covince.vercel.app/tiles/Local_Authority_Districts__December_2019__Boundaries_UK_BUC.json'
             >
               <Covid19 />
             </DataProvider>
