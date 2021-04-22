@@ -28,7 +28,7 @@ const NavBar = () => {
     if (aboutOpen) {
       return ('hidden')
     } else {
-      return (' lg:inline-block')
+      return ('hidden lg:inline-block')
     }
   })
 
