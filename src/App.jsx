@@ -37,8 +37,10 @@ function App () {
               default_tiles_url='https://covince.vercel.app/tiles/Local_Authority_Districts__December_2019__Boundaries_UK_BUC.json'
             >
               <Covid19 />
+
             </DataProvider>
           </AppContainer>
+
         </Suspense>
       </QueryClientProvider>
     </>
