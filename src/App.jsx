@@ -1,8 +1,8 @@
-import React, { lazy, Suspense } from 'react'
+import React, { Suspense } from 'react'
 import NavBar from './components/NavBar'
 import Spinner from './components/Spinner'
 import AppContainer from './components/AppContainer'
-import DataProvider from './components/DataProvider'
+import Covince from 'covince/src/Covince'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 const twentyFourHoursInMs = 1000 * 60 * 60 * 24
@@ -12,12 +12,10 @@ const queryClient = new QueryClient({
       refetchOnWindowFocus: false,
       refetchOnmount: false,
       refetchOnReconnect: false,
-      staleTime: twentyFourHoursInMs * 100
+      staleTime: twentyFourHoursInMs * 0.5
     }
   }
 })
-
-const Covid19 = lazy(() => import('./components/Covid19'))
 
 const Loading = () => (
   <div className='fixed inset-0 grid place-content-center'>
@@ -32,15 +30,8 @@ function App () {
         <Suspense fallback={<Loading />}>
           <NavBar />
           <AppContainer>
-            <DataProvider
-              default_data_url="https://covince.vercel.app/data"
-              default_tiles_url='https://covince.vercel.app/tiles/Local_Authority_Districts__December_2019__Boundaries_UK_BUC.json'
-            >
-              <Covid19 />
-
-            </DataProvider>
+            <Covince />
           </AppContainer>
-
         </Suspense>
       </QueryClientProvider>
     </>
