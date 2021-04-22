@@ -10,6 +10,15 @@ export default defineConfig({
   resolve: {
     alias: {
       'mapbox-gl': 'maplibre-gl'
+    },
+    optimizeDeps: {
+      include: [
+        'prop-types',
+        'recharts',
+        'tailwindcss/defaultTheme',
+        'tailwindcss/colors',
+        'axios'
+      ]
     }
   }
   // build: {

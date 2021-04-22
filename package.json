@@ -17,6 +17,7 @@
     "maplibre-gl": "^1.13.0-rc.5",
     "moment": "^2.29.1",
     "react": "^17.0.0",
+    "covince": "github:theosanderson/covince#24525a23bb89c5541ed4bfa6f9eaa9704a2b22da",
     "react-dom": "^17.0.0",
     "react-icons": "^4.1.0",
     "react-intersection-observer": "^8.31.0",
