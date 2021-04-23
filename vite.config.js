@@ -17,6 +17,7 @@ export default defineConfig({
         'recharts',
         'tailwindcss/defaultTheme',
         'tailwindcss/colors',
+        'tailwindcss',
         'axios'
       ]
     }
