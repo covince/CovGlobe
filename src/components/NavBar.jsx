@@ -58,7 +58,7 @@ const NavBar = () => {
 
           <p className="mb-1 md:mb-3"><strong>Important caveat:</strong> global sequencing databases are subject to various biases. Within a country, the genomes sampled may represent only a particular region of the country, or predominantly samples identified at the border, or be enriched for samples that have shown a particular testing result such as SGTF. </p>
 
-          <a href="//gisaid.org"><span className="inline">Enabled by data from</span>
+          <a href="//gisaid.org"><span className="inline">Enabled by data from. Code and more information <a href="https://github.com/theosanderson/covglobe">available on GitHub</a>.</span>
         <img src="/schild.png" className="inline-block h-6 ml-1" /><br /></a>
         </div>.
   </header>
