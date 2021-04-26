@@ -21,6 +21,7 @@ CovGlobe displays GISAID data on pango lineages on a spatiotemporal map.
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ### Related resources
-- [CoVariants.org](http://CoVariants)
+- [CoVariants.org](http://CoVariants.org)
 - [PANGO lineages](https://cov-lineages.org/)
+- [Outbreak.info](https://outbreak.info)
 - [GISAID](https://www.gisaid.org/)
