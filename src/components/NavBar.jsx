@@ -11,7 +11,7 @@ const NavBar = () => {
   console.log(aboutOpen)
   const height = useMemo(x => {
     if (aboutOpen) {
-      return ('h-72 lg:h-60')
+      return ('h-80 lg:h-64')
     } else {
       return ('h-header md:h-header-md')
     }
@@ -59,7 +59,7 @@ const NavBar = () => {
           <p className="mb-1 md:mb-3"><strong>Important caveat:</strong> global sequencing databases are subject to various biases. Within a country, the genomes sampled may represent only a particular region of the country, or predominantly samples identified at the border, or be enriched for samples that have shown a particular testing result such as SGTF. </p>
 
           <p>Enabled by data from <a href="//gisaid.org"><img src="/schild.png" className="inline-block h-6 ml-1" /></a>. Code and more information <a href="https://github.com/theosanderson/covglobe" className="underline">available on GitHub</a>.</p>
-      
+
         </div>.
   </header>
   )
