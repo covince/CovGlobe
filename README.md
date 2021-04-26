@@ -2,6 +2,11 @@
 
 CovGlobe displays GISAID data on pango lineages on a spatiotemporal map.
 
+## Visit [CovGlobe.org](http://covglobe.org/)
+
+&nbsp;
+
+
 ### CovGlobe uses the [CovInce](https://github.com/theosanderson/covince) framework, developed by: 
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -20,3 +25,8 @@ CovGlobe displays GISAID data on pango lineages on a spatiotemporal map.
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
+### Related resources
+- [CoVariants.org](http://CoVariants.org)
+- [PANGO lineages](https://cov-lineages.org/)
+- [Outbreak.info](https://outbreak.info)
+- [GISAID](https://www.gisaid.org/)
