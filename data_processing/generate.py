@@ -44,7 +44,6 @@ for k,v in tqdm.tqdm(by_ltla.items()):
     with open(f'../public/data/area/{k}.json', 'w') as outfile:
         json.dump({'data':v}, outfile)
 
-        
 init_dict = json.loads(""" {"initialDate": "2020-12-26",
     "defaultLineage": "B.1.1.7",
     "frameLength":400,
@@ -57,6 +56,7 @@ init_dict = json.loads(""" {"initialDate": "2020-12-26",
           "#AA4499",
           "#882255",
           "#44AA99",
+          "#DDCC77",
           "#DDDDDD" ],
     "parameters": [
         {

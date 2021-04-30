@@ -54,7 +54,7 @@ const ColourBar = ({ dmin, dmax, scale, type, className, percentage }) => {
 
   const formatValue = useMemo(() =>
     percentage
-      ? v => `${v}%`
+      ? v => `${Number.isInteger(v) ? v : v.toFixed(1)}%`
       : v => Math.round(v).toLocaleString()
   , [percentage])
 
@@ -277,7 +277,7 @@ const Chloropleth = (props) => {
 
   const formatValue = useMemo(() =>
     percentage
-      ? v => `${v.toFixed(1)}%`
+      ? v => `${Number.isInteger(v) ? v : v.toFixed(1)}%`
       : v => v.toFixed(2)
   , [percentage])
 

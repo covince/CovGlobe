@@ -8,10 +8,8 @@ genomes['country']=parts[1].str.strip()
 genomes=genomes.drop(columns="Location").rename(columns={'Pango lineage':'Lineage','Collection date':"date"})
 lineages = genomes[genomes['date'].str.len()>7].copy()
 lineages.loc[lineages['country']=="USA","country"]="United States"
-selected_lineages = ["A","B","B.1.177","B.1.1.7","B.1.351","P.1","B.1.617","B.1.525"]
 lineages=lineages[lineages.Lineage.notna()].copy()
-selected_lineages = ["A","B","B.1.177","B.1.1.7","B.1.351","P.1","B.1.617","B.1.525"]
-selected_lineages = ["A","B","B.1.177","B.1.1.7","B.1.351","P.1","B.1.617","B.1.525"]
+selected_lineages = ["A","B","B.1.177","B.1.1.7","B.1.351","P.1","B.1.617","B.1.525","B.1.526"]
 lineages['new_lineage'] = 'other'
 for lin in selected_lineages:
     lineages.loc[lineages['Lineage'].str.startswith(f"{lin}."),'new_lineage']=lin
@@ -42,6 +40,8 @@ np.logical_and( country_set["date"] > date- pd.Timedelta(11.5,unit="D"), country
         props = counts/counts.sum()
         if counts.sum()<3:
             props=pd.NA
+        if counts.sum()==0:
+            count=pd.NA
         
         new_df = pd.DataFrame({'lambda':counts/3,'p':props,'ltla':country,'date':date})
         dfs.append(new_df)
