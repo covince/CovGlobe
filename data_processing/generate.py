@@ -46,7 +46,7 @@ for k,v in tqdm.tqdm(by_ltla.items()):
 
 init_dict = json.loads(""" {"initialDate": "2020-12-26",
     "defaultLineage": "B.1.1.7",
-    "frameLength":400,
+    "frameLength":40,
     "defaultColorBy": "lambda",
     "colors":   ["#999933",
           "#117733",

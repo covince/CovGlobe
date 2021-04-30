@@ -6,6 +6,7 @@ genomes = genomes[['Collection date','Location','Pango lineage']]
 parts = genomes.Location.str.split("/",expand=True)
 genomes['country']=parts[1].str.strip()
 genomes=genomes.drop(columns="Location").rename(columns={'Pango lineage':'Lineage','Collection date':"date"})
+genomes = genomes[genomes["Lineage"]!="None"]
 lineages = genomes[genomes['date'].str.len()>7].copy()
 lineages.loc[lineages['country']=="USA","country"]="United States"
 lineages=lineages[lineages.Lineage.notna()].copy()
