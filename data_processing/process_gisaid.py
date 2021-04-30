@@ -41,7 +41,7 @@ np.logical_and( country_set["date"] > date- pd.Timedelta(11.5,unit="D"), country
         if counts.sum()<3:
             props=pd.NA
         if counts.sum()==0:
-            count=pd.NA
+            counts=counts*pd.NA
         
         new_df = pd.DataFrame({'lambda':counts/3,'p':props,'ltla':country,'date':date})
         dfs.append(new_df)
