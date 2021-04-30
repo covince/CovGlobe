@@ -24,7 +24,7 @@ import tqdm
 import numpy as np
 
 min_date="2020-03-01"
-max_date="2021-04-5"
+max_date="2021-04-12"
 
 dfs = []
 
