@@ -83,8 +83,8 @@ init_dict = json.loads(""" {"initialDate": "2020-12-26",
         }
     ],
     "overview": {
-        "heading": "Region",
-        "category": "Global overview",
+        "heading": "Global overview",
+        "category": "Region",
         "subnoun_singular": "Country",
         "subnoun_plural": "countries",
         "short_text": "World"
