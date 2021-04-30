@@ -40,7 +40,7 @@ const NavBar = () => {
         <span><IoMdGlobe size="1.3em" className="inline-block mr-1 mb-1 "/>CovGlobe</span>
       </NavLink>
       <div className=" h-text-right mr-1  md:pt-8">
-      <div className="text-sm font-bold ">
+      <div className="text-sm font-bold text-right">
       {aboutOpen && <div className=" cursor-pointer pb-7" onClick={x => setAboutOpen(!aboutOpen)}><AiFillCloseCircle className="inline-block mb-1" size="1.5em"/> Close</div>}
         {!aboutOpen && <span className=" cursor-pointer" onClick={x => setAboutOpen(!aboutOpen)}><BsInfoCircleFill className="inline-block mb-1" size="1.5em"/> About this site</span>}</div>
 
