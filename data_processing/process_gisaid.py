@@ -37,11 +37,11 @@ for country in tqdm.tqdm(countries+['overview']):
         country_set = lineages[lineages['country']==country]
     for date in  pd.date_range(min_date,max_date):
         restr = country_set[
-np.logical_and( country_set["date"] > date- pd.Timedelta(14,unit="D"), country_set["date"] < date + pd.Timedelta(14,unit="D"))]
+np.logical_and( country_set["date"] > date- pd.Timedelta(11.5,unit="D"), country_set["date"] < date + pd.Timedelta(11.5,unit="D"))]
         counts = restr.Lineage.value_counts()
         props = counts/counts.sum()
         if counts.sum()<3:
-            props[props>-5]=pd.NA
+            props=pd.NA
         
         new_df = pd.DataFrame({'lambda':counts/3,'p':props,'ltla':country,'date':date})
         dfs.append(new_df)

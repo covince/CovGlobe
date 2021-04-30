@@ -11,7 +11,7 @@ const NavBar = () => {
   console.log(aboutOpen)
   const height = useMemo(x => {
     if (aboutOpen) {
-      return ('h-80 lg:h-64')
+      return ('h-96 lg:h-72')
     } else {
       return ('h-header md:h-header-md')
     }
@@ -39,7 +39,7 @@ const NavBar = () => {
       <NavLink className="font-bold text-2xl" to="/">
         <span><IoMdGlobe size="1.3em" className="inline-block mr-1 mb-1 "/>CovGlobe</span>
       </NavLink>
-      <div className="text-right mr-1  md:pt-8">
+      <div className=" h-text-right mr-1  md:pt-8">
       <div className="text-sm font-bold ">
       {aboutOpen && <div className=" cursor-pointer pb-7" onClick={x => setAboutOpen(!aboutOpen)}><AiFillCloseCircle className="inline-block mb-1" size="1.5em"/> Close</div>}
         {!aboutOpen && <span className=" cursor-pointer" onClick={x => setAboutOpen(!aboutOpen)}><BsInfoCircleFill className="inline-block mb-1" size="1.5em"/> About this site</span>}</div>
@@ -58,7 +58,7 @@ const NavBar = () => {
 
           <p className="mb-1 md:mb-3"><strong>Important caveat:</strong> global sequencing databases are subject to various biases. Within a country, the genomes sampled may represent only a particular region of the country, or predominantly samples identified at the border, or be enriched for samples that have shown a particular testing result such as SGTF. </p>
 
-          <p>Enabled by data from <a href="//gisaid.org"><img src="/schild.png" className="inline-block h-6 ml-1" /></a>. Code and more information <a href="https://github.com/theosanderson/covglobe" className="underline">available on GitHub</a>.</p>
+          <p>Enabled by data from <a href="//gisaid.org"><img src="/schild.png" className="inline-block h-6 ml-1" /></a>. We are grateful to the very many people involved in generating the data displayed here.  Source code and more information <a href="https://github.com/theosanderson/covglobe" className="underline">available on GitHub</a>.</p>
 
         </div>.
   </header>
