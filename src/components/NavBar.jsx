@@ -41,7 +41,7 @@ const NavBar = () => {
     <h2 className="font-bold pb-1">CovGlobe</h2>
     <p className="pb-5">Find the source code and more information on contributors <a href="https://github.com/theosanderson/covglobe" className="underline">on GitHub</a>.</p>
       <h2 className="font-bold pb-1">GISAID</h2>
-    We would like to thank the GISAID Initiative<sup>1</sup> and are grateful to all of the data contributors, i.e. the Authors, the Originating laboratories responsible for obtaining the specimens, and the Submitting laboratories for generating the genetic sequence and metadata and sharing via the GISAID Initiative, on which this research is based. <br /><br />
+      We gratefully acknowledge all data contributors, i.e. the Authors and their Originating laboratories responsible for obtaining the specimens, and their Submitting laboratories for generating the genetic sequence and metadata and sharing via the GISAID Initiative<sup>1</sup> on which this research is based. <br /><br />
           1. Elbe, S., and Buckland-Merrett, G. (2017) Data, disease and diplomacy: GISAID’s innovative contribution to global health. Global Challenges, 1:33-46. DOI: <a className="underline" href="https://doi.org/10.1002/gch2.1018">10.1002/gch2.1018</a> PMCID: <a className="underline" href="https://pubmed.ncbi.nlm.nih.gov/31565258/">31565258</a>
     </div>}
     <div className="h-16 flex justify-between container text-white px-4 pt-2">
