@@ -34,9 +34,8 @@ function App () {
             <Covince default_data_url="/data" default_tiles_url="/map.json" />
 
           </AppContainer>
-          <div className="text-center p-2 mx-5">
-          We would like to thank the GISAID Initiative<sup>1</sup> and are grateful to all of the data contributors, i.e. the Authors, the Originating laboratories responsible for obtaining the specimens, and the Submitting laboratories for generating the genetic sequence and metadata and sharing via the GISAID Initiative, on which this research is based. GISAID data provided on this website are subject to <a className="underline" href="https://www.gisaid.org/registration/terms-of-use/">GISAID's Terms and Conditions</a>.<br /><br />
-          1. Elbe, S., and Buckland-Merrett, G. (2017) Data, disease and diplomacy: GISAID’s innovative contribution to global health. Global Challenges, 1:33-46. DOI: 10.1002/gch2.1018 PMCID: 31565258
+          <div className="text-center p-2 mx-5 text-sm ">
+          GISAID data provided on this website are subject to <a className="underline" href="https://www.gisaid.org/registration/terms-of-use/">GISAID's Terms and Conditions</a>.
 
           </div>
         </Suspense>
