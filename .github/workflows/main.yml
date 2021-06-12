@@ -19,6 +19,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} 
       - name: Download file
         #run: curl -u {{secrets.GISAID_USERNAME}}:{{secrets.GISAID_PW}} https://www.epicov.org/epi3/3p/varsurv02/export/provision.json.xz | xz -d -T0  > ./gisaid.json
         run: curl http://google.com  > ./gisaid.json
