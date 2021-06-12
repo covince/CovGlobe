@@ -22,8 +22,17 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }} 
       - name: Download file
-        #run: curl -u {{secrets.GISAID_USERNAME}}:{{secrets.GISAID_PW}} https://www.epicov.org/epi3/3p/varsurv02/export/provision.json.xz | xz -d -T0  > ./gisaid.json
-        run: curl http://google.com  > ./gisaid.json
+        run: curl -u {{secrets.GISAID_USERNAME}}:{{secrets.GISAID_PW}} https://www.epicov.org/epi3/3p/varsurv02/export/provision.json.xz | xz -d -T0  > ./provision.json
+        working-directory: ./data_processing/
+      - name: Run script 1
+        run: python process_gisaid.py
+        working-directory: ./data_processing/
+      - name: Run script 2
+        run: python generate.py
+        working-directory: ./data_processing/
+      - name: Delete files
+        run: rm provision.json full_data_table.csv
+        working-directory: ./data_processing/
       - uses: EndBug/add-and-commit@v7
         with:
           default_author: github_actions
