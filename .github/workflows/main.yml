@@ -21,8 +21,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }} 
+      - name: Test
+        run: echo ${{secrets.TEST}}
       - name: Download file
-        run: curl -u {{secrets.GISAID_USERNAME}}:{{secrets.GISAID_PW}} https://www.epicov.org/epi3/3p/varsurv02/export/provision.json.xz | xz -d -T0  > ./provision.json
+        run: curl -u ${{secrets.GISAID_USERNAME}}:${{secrets.GISAID_PW}} https://www.epicov.org/epi3/3p/varsurv02/export/provision.json.xz | xz -d -T0  > ./provision.json
         working-directory: ./data_processing/
       - name: Run script 1
         run: python process_gisaid.py
