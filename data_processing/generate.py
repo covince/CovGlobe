@@ -92,7 +92,7 @@ init_dict = json.loads(""" {"initialDate": "2020-12-26",
 init_dict['areas'] = list(by_ltla.keys())
 
 init_dict['lineages'] = lineages
-with open(f'./output/data/lists.json', 'w') as outfile:
+with open(f'../public/data/lists.json', 'w') as outfile:
                 json.dump(init_dict, outfile)
 
 
