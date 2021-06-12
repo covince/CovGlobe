@@ -1,8 +1,14 @@
 import pandas as pd
 import tqdm
 import numpy as np
-genomes = pd.read_csv("metadata.tsv",sep="\t")
-genomes = genomes[['Collection date','Location','Pango lineage']]
+import json
+import datetime
+tweets = []
+for line in open('provision.json', 'r'):
+    tweets.append(json.loads(line))
+
+genomes = pd.DataFrame(tweets)
+genomes = genomes.rename(columns={'covv_collection_date':'Collection date','covv_location':'Location','covv_lineage':'Pango lineage'} )[['Collection date','Location','Pango lineage']]
 parts = genomes.Location.str.split("/",expand=True)
 genomes['country']=parts[1].str.strip()
 genomes=genomes.drop(columns="Location").rename(columns={'Pango lineage':'Lineage','Collection date':"date"})
@@ -25,7 +31,7 @@ import tqdm
 import numpy as np
 
 min_date="2020-03-01"
-max_date="2021-04-12"
+max_date=datetime.datetime.today().strftime('%Y-%m-%d')
 
 dfs = []
 
@@ -34,7 +40,7 @@ for country in tqdm.tqdm(countries+['overview']):
         country_set= lineages
     else:
         country_set = lineages[lineages['country']==country]
-    for date in  pd.date_range(min_date,max_date):
+    for date in  pd.date_range(min_date,max_date,freq="3D"):
         restr = country_set[
 np.logical_and( country_set["date"] > date- pd.Timedelta(11.5,unit="D"), country_set["date"] < date + pd.Timedelta(11.5,unit="D"))]
         counts = restr.Lineage.value_counts()
