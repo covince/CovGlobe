@@ -7,6 +7,9 @@ export default defineConfig({
   plugins: [reactRefresh()],
   publicDir: './public',
   base: '/',
+  build:{
+    cssCodeSplit: false
+  }
   resolve: {
     alias: {
       'mapbox-gl': 'maplibre-gl'
