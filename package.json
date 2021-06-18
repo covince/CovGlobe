@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "homepage": "http://theosanderson.github.io/covince",
   "private": true,
+  "build": {
+    "cssCodeSplit": false
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
