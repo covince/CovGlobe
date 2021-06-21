@@ -1,0 +1,28 @@
+/* https://projects.lukehaas.me/css-loaders/ */
+
+.covince-spinner,
+.covince-spinner::before {
+  @apply rounded-full box-content border-4;
+}
+.covince-spinner {
+  @apply relative border-solid border-transparent;
+  border-left-color: currentcolor;
+  transform: translateZ(0);
+  animation: load8 1.1s infinite linear;
+}
+
+.covince-spinner::before {
+  @apply opacity-20 border-solid border-current w-full h-full absolute -top-1 -left-1;
+  content: '';
+}
+
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
