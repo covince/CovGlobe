@@ -4,8 +4,12 @@ import numpy as np
 import json
 import datetime
 tweets = []
+columns_needed = ['covv_collection_date','covv_location','covv_lineage']
 for line in open('provision.json', 'r'):
-    tweets.append(json.loads(line))
+    initial = json.loads(line)
+    
+    final = dict(filter(lambda elem: elem[0] in columns_needed, initial.items()))
+    tweets.append(final)
 
 genomes = pd.DataFrame(tweets)
 genomes = genomes.rename(columns={'covv_collection_date':'Collection date','covv_location':'Location','covv_lineage':'Pango lineage'} )[['Collection date','Location','Pango lineage']]
