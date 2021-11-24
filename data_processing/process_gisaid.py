@@ -12,6 +12,7 @@ for line in open('provision.json', 'r'):
     tweets.append(final)
 
 genomes = pd.DataFrame(tweets)
+del tweets
 genomes = genomes.rename(columns={'covv_collection_date':'Collection date','covv_location':'Location','covv_lineage':'Pango lineage'} )[['Collection date','Location','Pango lineage']]
 parts = genomes.Location.str.split("/",expand=True)
 genomes['country']=parts[1].str.strip()
@@ -20,48 +21,35 @@ genomes = genomes[genomes["Lineage"]!="None"]
 lineages = genomes[genomes['date'].str.len()>7].copy()
 lineages.loc[lineages['country']=="USA","country"]="United States"
 lineages=lineages[lineages.Lineage.notna()].copy()
-selected_lineages = ["A","B","B.1.177","B.1.1.7","B.1.351","P.1","B.1.617","B.1.525","B.1.526"]
-lineages['new_lineage'] = 'other'
-for lin in selected_lineages:
-    lineages.loc[lineages['Lineage'].str.startswith(f"{lin}."),'new_lineage']=lin
-    lineages.loc[lineages['Lineage'] == lin,'new_lineage']=lin
-lineages = lineages.drop(columns="Lineage").rename(columns={'new_lineage':'Lineage'})
-#countries = sorted(set(lineages.country.tolist()).intersection(cases['location'].tolist()))
 countries = sorted([x for x in set(lineages.country.tolist()) if x is not None])
 lineages = lineages[lineages.date.str.match(r'202.-[0-9][0-9]-[0-9][0-9]')==True]
 lineages['date'] = pd.to_datetime(lineages['date'])
 lineages.Lineage=  lineages.Lineage.astype("category")
-import tqdm
-import numpy as np
 
 min_date="2020-03-01"
 max_date=datetime.datetime.today().strftime('%Y-%m-%d')
 
-dfs = []
+csv_file="full_data_table.csv"
 
-for country in tqdm.tqdm(countries+['overview']):
-    if country=='overview':
-        country_set= lineages
-    else:
-        country_set = lineages[lineages['country']==country]
-    for date in  pd.date_range(min_date,max_date,freq="3D"):
-        restr = country_set[
-np.logical_and( country_set["date"] > date- pd.Timedelta(21,unit="D"), country_set["date"] < date + pd.Timedelta(1,unit="D"))]
-        counts = restr.Lineage.value_counts()
-        props = counts/counts.sum()
-        if counts.sum()<3:
-            props=pd.NA
-        if counts.sum()==0:
-            counts=counts*pd.NA
+import csv
+with open(csv_file, 'w', encoding='utf-8') as f:
+    writer = csv.writer(f)
+    writer.writerow(['lineage','date','country','count','period_count'])
+
+for country in tqdm.tqdm(countries):
+    country_set = lineages[lineages['country']==country]
+    dfs=[]
+    for date in pd.date_range(min_date,max_date,freq="7D"):
+        restr = country_set[np.logical_and( country_set["date"] > date- pd.Timedelta(21,unit="D"), country_set["date"] < date + pd.Timedelta(1,unit="D"))]
+        threeweek = restr.Lineage.value_counts()
         
-        new_df = pd.DataFrame({'lambda':counts/3,'p':props,'ltla':country,'date':date})
-        dfs.append(new_df)
-big_df = pd.concat(dfs)
-big_df = big_df.reset_index().rename(columns={'index':'lineage'})
-big_df = big_df.melt(value_vars=['lambda','p'],id_vars=['date','ltla','lineage'], value_name = "mean",var_name="parameter")
-big_df['lower'] = big_df['mean']
-big_df['upper'] = big_df['mean']
-big_df=big_df.rename(columns = {'ltla':'lad19cd'})
-big_df.to_csv("full_data_table.csv")
-
-
+        restr2 = country_set[np.logical_and( country_set["date"] > date- pd.Timedelta(7,unit="D"), country_set["date"] < date + pd.Timedelta(1,unit="D"))]
+        oneweek = restr2.Lineage.value_counts()
+        
+        df = pd.DataFrame({'date':date,'country':country,'count':oneweek,'period_count':threeweek})
+        df = df[df['period_count'] > 0]
+        dfs.append(df)
+    
+    country_df = pd.concat(dfs)
+    country_df = country_df.reset_index().rename(columns={'index':'lineage'})
+    country_df.to_csv(csv_file, mode='a', index=False, header=False)

@@ -1,0 +1,6 @@
+name: covglobe
+
+dependencies:
+  - numpy
+  - pandas
+  - tqdm
