@@ -2,9 +2,10 @@ import React, { Suspense } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 import NavBar from './components/NavBar'
-import Spinner from './components/Spinner'
-import AppContainer from './components/AppContainer'
-import Covince from './Covince'
+import Spinner from 'covince/src/components/Spinner'
+import AppContainer from 'covince/src/components/AppContainer'
+// import Covince from './Covince'
+import CovInce from 'covince/src/DynamicCovInce'
 
 const twentyFourHoursInMs = 1000 * 60 * 60 * 24
 const queryClient = new QueryClient({
@@ -31,12 +32,10 @@ function App () {
         <Suspense fallback={<Loading />}>
           <NavBar />
           <AppContainer>
-            <Covince default_data_url="/data" default_tiles_url="/map.json" />
-
+            <CovInce tiles_url="/map.json" config_url="/config.json" />
           </AppContainer>
           <div className="text-center p-2 mx-5 text-sm ">
-          GISAID data provided on this website are subject to <a className="underline" href="https://www.gisaid.org/registration/terms-of-use/">GISAID's Terms and Conditions</a>.
-
+            GISAID data provided on this website are subject to <a className="underline" href="https://www.gisaid.org/registration/terms-of-use/">GISAID's Terms and Conditions</a>.
           </div>
         </Suspense>
       </QueryClientProvider>

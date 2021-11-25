@@ -1,0 +1,71 @@
+{
+  "dynamic_mode": {
+    "initial_lineages": {
+      "B": 2,
+      "B.1.617.2": 1,
+      "AY.4.2": 0
+    }
+  },
+  "initialDate": "2020-12-26",
+  "defaultLineage": "B.1.1.7",
+  "frameLength": 40,
+  "defaultColorBy": "lambda",
+  "parameters": [
+    {
+      "id": "lambda",
+      "display": "Genomes per week"
+    },
+    {
+      "id": "p",
+      "display": "Proportion",
+      "format": "percentage"
+    }
+  ],
+  "ontology": {
+    "overview": {
+      "category": "Region",
+      "heading": "Global Overview",
+      "short_heading": "World"
+    },
+    "area": {
+      "category": "Country",
+      "noun_plural": "countries",
+      "_search_placeholder": "local authority or postcode"
+    }
+  },
+  "map": {
+    "settings": {
+      "default_color_scale": {
+        "p": "linear",
+        "lambda": "quadratic"
+      }
+    },
+    "viewport": {
+      "min_zoom": 0,
+      "default_lat": 52.561928,
+      "default_lon": -1.464854,
+      "default_zoom": 5,
+      "default_zoom_mob": 4.5,
+      "bounds": {
+        "min_longitude": -180,
+        "max_longitude": 180,
+        "min_latitude": -180,
+        "max_latitude": 180
+      }
+    }
+  },
+  "charts": [
+    {
+      "parameter": "lambda",
+      "heading": "Genomes per week",
+      "default_type": "line",
+      "allow_stack": true
+    },
+    {
+      "parameter": "p",
+      "heading": "Proportion",
+      "default_type": "area",
+      "allow_stack": true
+    }
+  ]
+}
