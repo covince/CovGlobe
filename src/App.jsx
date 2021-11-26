@@ -35,7 +35,7 @@ function App () {
             <CovInce
               tiles_url="/map.json"
               config_url="/config.json"
-              api_url="http://covid19.sanger.ac.uk/api/ext/covglobe"
+              api_url="//covid19.sanger.ac.uk/api/ext/covglobe"
             />
           </AppContainer>
           <div className="text-center p-2 md:pt-0 md:pb-4 mx-5 text-sm">
