@@ -1,15 +1,17 @@
 {
-  "name": "covince",
+  "name": "covglobe",
   "version": "0.1.0",
-  "homepage": "http://theosanderson.github.io/covince",
+  "homepage": "https://covglobe.org",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "start": "vercel dev",
+    "dev": "vite --port $PORT",
     "build": "vite build",
     "serve": "vite preview"
   },
   "dependencies": {
-    "covince": "github:covince/covince#75c12f9512a89b739df7fa40492efbc4e2001730"
+    "covince": "github:covince/covince#75c12f9512a89b739df7fa40492efbc4e2001730",
+    "covince-backend": "github:richardgoater/covince-backend#7422109a32d3791578b4fdbfae748e248283515b"
   },
   "devDependencies": {
     "all-contributors-cli": "^6.20.0",
@@ -19,6 +21,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.22.0",
-    "rollup-plugin-analyzer": "^4.0.0"
+    "rollup-plugin-analyzer": "^4.0.0",
+    "vercel": "^23.1.2"
   }
 }
