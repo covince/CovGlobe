@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "covince": "github:covince/covince#75c12f9512a89b739df7fa40492efbc4e2001730",
-    "covince-backend": "github:richardgoater/covince-backend#7422109a32d3791578b4fdbfae748e248283515b"
+    "covince-backend": "github:covince/covince-backend#7422109a32d3791578b4fdbfae748e248283515b"
   },
   "devDependencies": {
     "all-contributors-cli": "^6.20.0",
