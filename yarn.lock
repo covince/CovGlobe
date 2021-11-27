@@ -1105,9 +1105,9 @@ cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-"covince-backend@github:richardgoater/covince-backend#7422109a32d3791578b4fdbfae748e248283515b":
+"covince-backend@github:covince/covince-backend#7a74c0692c9a6db693722aeed0885492f2499fa2":
   version "0.0.1"
-  resolved "git+ssh://git@github.com/richardgoater/covince-backend.git#7422109a32d3791578b4fdbfae748e248283515b"
+  resolved "https://codeload.github.com/covince/covince-backend/tar.gz/7a74c0692c9a6db693722aeed0885492f2499fa2"
   dependencies:
     cors "^2.8.5"
     express "^4.17.1"
@@ -1117,9 +1117,9 @@ cosmiconfig@^7.0.1:
     pg-query-stream "^4.2.1"
     pg-types "^3.0.1"
 
-"covince@github:covince/covince#75c12f9512a89b739df7fa40492efbc4e2001730":
+"covince@github:covince/covince#9fbf42711147aac7d5ca41f275b85f1bb3cb07af":
   version "0.4.0"
-  resolved "https://codeload.github.com/covince/covince/tar.gz/75c12f9512a89b739df7fa40492efbc4e2001730"
+  resolved "https://codeload.github.com/covince/covince/tar.gz/9fbf42711147aac7d5ca41f275b85f1bb3cb07af"
   dependencies:
     "@headlessui/react" "^1.4.1"
     "@reach/combobox" "^0.15.1"

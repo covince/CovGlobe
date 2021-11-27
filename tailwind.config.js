@@ -25,7 +25,7 @@ module.exports = {
         // ...covinceConfig.theme.extend.spacing,
         header: defaultTheme.spacing[16],
         'header-md': defaultTheme.spacing[32],
-        18: defaultTheme.spacing[12] // TODO: fix this
+        'header-overlap': defaultTheme.spacing[12]
       }
       // gridTemplateRows: {
       //   '1-full': '100%'

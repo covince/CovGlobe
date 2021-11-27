@@ -38,20 +38,21 @@ export default defineConfig({
     // }
   },
   server: {
-    // proxy: {
-    //   '/api/': {
-    //     target: 'http://0.0.0.0:4000',
-    //     changeOrigin: true,
-    //     timeout: 1000,
-    //     proxyTimeout: 1000
-    //   }
-    // }
-  }
-  // build: {
+    proxy: {
+      '/api/': {
+        target: 'http://0.0.0.0:4000',
+        changeOrigin: true,
+        timeout: 1000,
+        proxyTimeout: 1000
+      }
+    }
+  },
+  build: {
+    cssCodeSplit: false
   //   rollupOptions: {
   //     plugins: [
   //       analyze()
   //     ]
   //   }
-  // }
+  }
 })

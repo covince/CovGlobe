@@ -32,10 +32,21 @@ jobs:
       - name: Run script 2
         run: python generate.py
         working-directory: ./data_processing/
-      - name: Delete files
-        run: rm provision.json full_data_table.csv
+      # https://blog.benoitblanchon.fr/github-action-run-ssh-commands/
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          cat >>~/.ssh/config <<END
+          Host *
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+      - name: copy file to server
+        run: scp full_data_table.csv ${{ secrets.SSH_TARGET }}:/tmp
         working-directory: ./data_processing/
-      - uses: EndBug/add-and-commit@v7
-        with:
-          default_author: github_actions
+      - name: do remote update
+        run: ssh ${{ secrets.SSH_TARGET }} -C './update.sh'
  
