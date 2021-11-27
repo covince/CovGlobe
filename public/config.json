@@ -42,7 +42,7 @@
   },
   "map": {
     "settings": {
-      "default_color_by": "B.1.617",
+      "default_lineage": "B.1.617",
       "default_color_scale": {
         "p": "linear",
         "lambda": "quadratic"
