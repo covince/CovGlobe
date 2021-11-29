@@ -16,7 +16,7 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  download + aggregate:
+  download_and_aggregate:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -43,10 +43,10 @@ jobs:
     runs-on: ubuntu-latest
     # https://event-driven.io/en/how_to_buid_and_push_docker_image_with_github_actions/
     steps:
-       - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-        repository: covince/covince-backend
+          repository: covince/covince-backend
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
@@ -72,6 +72,7 @@ jobs:
 
   update-db:
     runs-on: ubuntu-latest
+    steps:
       # https://blog.benoitblanchon.fr/github-action-run-ssh-commands/
       - name: Configure SSH
         run: |
