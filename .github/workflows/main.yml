@@ -26,11 +26,8 @@ jobs:
       - name: Download file
         run: curl -u ${{secrets.GISAID_USERNAME}}:${{secrets.GISAID_PW}} https://www.epicov.org/epi3/3p/varsurv02/export/provision.json.xz | xz -d -T0  > ./provision.json
         working-directory: ./data_processing/
-      - name: Run script 1
+      - name: Aggregate
         run: python process_gisaid.py
-        working-directory: ./data_processing/
-      - name: Run script 2
-        run: python generate.py
         working-directory: ./data_processing/
       # https://blog.benoitblanchon.fr/github-action-run-ssh-commands/
       - name: Configure SSH
