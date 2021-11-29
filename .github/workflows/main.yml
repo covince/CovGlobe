@@ -9,6 +9,10 @@ on:
     # * is a special character in YAML so you have to quote this string
     - cron:  '0 5 * * *'
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -49,9 +53,9 @@ jobs:
       - name: Login to GCHR
         uses: docker/login-action@v1
         with:
-          registry: ghcr.io
+          registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_PAT }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Download aggregated file
         uses: actions/download-artifact@v2
         with:
@@ -64,7 +68,7 @@ jobs:
           context: ./database
           # Note: tags has to be all lower-case
           tags: |
-            ghcr.io/covince/covglobe/db:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/db:latest
 
   update-db:
     runs-on: ubuntu-latest
