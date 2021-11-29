@@ -16,7 +16,7 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  download_and_aggregate:
+  download-and-aggregate:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -40,6 +40,7 @@ jobs:
           path: ./data_processing/full_data_table.csv
   
   build-db-image:
+    needs: download-and-aggregate
     runs-on: ubuntu-latest
     # https://event-driven.io/en/how_to_buid_and_push_docker_image_with_github_actions/
     steps:
@@ -71,6 +72,7 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/db:latest
 
   update-db:
+    needs: build-db-image
     runs-on: ubuntu-latest
     steps:
       # https://blog.benoitblanchon.fr/github-action-run-ssh-commands/
