@@ -12,7 +12,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  download:
+  download + aggregate:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -29,21 +29,58 @@ jobs:
       - name: Aggregate
         run: python process_gisaid.py
         working-directory: ./data_processing/
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with: 
+          name: aggregated-csv
+          path: ./data_processing/full_data_table.csv
+  
+  build-db-image:
+    runs-on: ubuntu-latest
+    # https://event-driven.io/en/how_to_buid_and_push_docker_image_with_github_actions/
+    steps:
+       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+        repository: covince/covince-backend
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Login to GCHR
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_PAT }}
+      - name: Download aggregated file
+        uses: actions/download-artifact@v2
+        with:
+          name: aggregated-csv
+          path: database/input.csv
+      - name: Build image and push to Docker Hub and GitHub Container Registry
+        uses: docker/build-push-action@v2
+        with:
+          # relative path to the place where source code with Dockerfile is located
+          context: ./database
+          # Note: tags has to be all lower-case
+          tags: |
+            ghcr.io/covince/covglobe/db:latest
+
+  update-db:
+    runs-on: ubuntu-latest
       # https://blog.benoitblanchon.fr/github-action-run-ssh-commands/
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh/
-          echo "$SSH_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+          echo "$SSH_KEY" > ~/.ssh/db.key
+          chmod 600 ~/.ssh/db.key
           cat >>~/.ssh/config <<END
           Host *
+            IdentityFile ~/.ssh/db.key
             StrictHostKeyChecking no
           END
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
-      - name: copy file to server
-        run: scp full_data_table.csv ${{ secrets.SSH_TARGET }}:/tmp
-        working-directory: ./data_processing/
       - name: do remote update
-        run: ssh ${{ secrets.SSH_TARGET }} -C './update.sh'
+        run: ssh ${{ secrets.SSH_TARGET }} -C './update.sh' 2>/dev/null
  
