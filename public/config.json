@@ -46,10 +46,13 @@
     },
     "viewport": {
       "min_zoom": 0,
-      "default_lat": 52.561928,
-      "default_lon": -1.464854,
-      "default_zoom": 0,
-      "default_zoom_mob": 0,
+      "default_lat": 25.763351,
+      "default_lon": 31.115753,
+      "default_zoom": {
+        "mobile": 0,
+        "desktop": 0.46,
+        "big": 1
+      },
       "bounds": {
         "min_longitude": -180,
         "max_longitude": 180,

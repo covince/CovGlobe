@@ -1117,9 +1117,9 @@ cosmiconfig@^7.0.1:
     pg-query-stream "^4.2.1"
     pg-types "^3.0.1"
 
-"covince@github:covince/covince#cab48bf1b6ed5db0ddb2d136226decd2b31f6c05":
-  version "0.4.0"
-  resolved "https://codeload.github.com/covince/covince/tar.gz/cab48bf1b6ed5db0ddb2d136226decd2b31f6c05"
+"covince@github:covince/covince#fde5023067b52d89f1d45ff55f27b59eab679999":
+  version "0.5.1"
+  resolved "https://codeload.github.com/covince/covince/tar.gz/fde5023067b52d89f1d45ff55f27b59eab679999"
   dependencies:
     "@headlessui/react" "^1.4.1"
     "@reach/combobox" "^0.15.1"
@@ -1133,8 +1133,8 @@ cosmiconfig@^7.0.1:
     moment "^2.29.1"
     pango-utils "^1.0.0"
     postcss-nested "^5.0.5"
-    react "^17.0.0"
-    react-dom "^17.0.0"
+    react "^17.0.2"
+    react-dom "^17.0.2"
     react-icons "^4.1.0"
     react-intersection-observer "^8.31.0"
     react-map-gl "^6.1.10"
@@ -3534,7 +3534,7 @@ rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^17.0.0:
+react-dom@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
@@ -3669,7 +3669,7 @@ react-transition-group@^4.4.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@^17.0.0:
+react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==

@@ -5,12 +5,12 @@
   "private": true,
   "scripts": {
     "start": "vercel dev",
-    "dev": "vite --port $PORT",
+    "dev": "vite --port ${PORT:-3000}",
     "build": "vite build",
     "serve": "vite preview"
   },
   "dependencies": {
-    "covince": "github:covince/covince#cab48bf1b6ed5db0ddb2d136226decd2b31f6c05",
+    "covince": "github:covince/covince#fde5023067b52d89f1d45ff55f27b59eab679999",
     "covince-backend": "github:covince/covince-backend#7a74c0692c9a6db693722aeed0885492f2499fa2"
   },
   "devDependencies": {
