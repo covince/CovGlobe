@@ -19,7 +19,7 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  download-and-aggregate:
+  download-aggregate-update:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -41,51 +41,7 @@ jobs:
         with: 
           name: aggregated-csv
           path: ./data_processing/full_data_table.csv
-  
-  build-db-image:
-    needs: download-and-aggregate
-    runs-on: ubuntu-latest
-    # https://event-driven.io/en/how_to_buid_and_push_docker_image_with_github_actions/
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository: covince/covince-backend
-      - name: Download aggregated file
-        uses: actions/download-artifact@v2
-        with:
-          name: aggregated-csv
-          path: database
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1
-      - name: Login to GHCR
-        uses: docker/login-action@v1
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      # https://github.com/docker/build-push-action/issues/37#issuecomment-720358308
-      - name: Prepare build
-        run: |
-          echo IMAGE_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
-          mv full_data_table.csv input.csv
-        working-directory: database
-      - name: Build image and push to GHCR
-        uses: docker/build-push-action@v2
-        with:
-          # relative path to the place where source code with Dockerfile is located
-          context: ./database
-          push: true
-          # Note: tags has to be all lower-case
-          tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/db:latest
 
-  update-db:
-    needs: build-db-image
-    runs-on: ubuntu-latest
-    steps:
-      # https://blog.benoitblanchon.fr/github-action-run-ssh-commands/
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh/
@@ -98,6 +54,8 @@ jobs:
           END
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
+      - name: copy file
+        run: scp full_data_table.csv ${{ secrets.SSH_TARGET }}:/tmp/input.csv 2>/dev/null
+        working-directory: ./data_processing/
       - name: do remote update
-        run: ssh ${{ secrets.SSH_TARGET }} -C './update.sh' 2>/dev/null
- 
+        run: ssh ${{ secrets.SSH_TARGET }} -C './update.sh' 2>/dev/null 
