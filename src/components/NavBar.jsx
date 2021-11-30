@@ -35,7 +35,7 @@ const NavBar = () => {
           </p>
         </div> }
       <div className="container text-white px-4 py-2 md:py-0">
-        <div className="h-14 flex justify-between items-center">
+        <div className="h-12 md:h-14 flex justify-between items-center">
           <NavLink className="font-bold text-2xl flex items-center" to="/">
             <IoMdGlobe size="1.375em" className="mr-1.5" /><span>CovGlobe</span>
           </NavLink>
@@ -65,7 +65,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className={classNames(
-        'px-3 space-y-3 transition-all duration-1000 container text-white text-sm md:text-base',
+        'px-3 pb-3 space-y-3 transition-all duration-1000 container text-white text-sm md:text-base',
         aboutOpen ? 'opacity-100' : 'hidden opacity-0'
       )}>
         <p>
@@ -76,7 +76,10 @@ const NavBar = () => {
           <strong>Important caveat:</strong> global sequencing databases are subject to various biases. Within a country, the genomes sampled may represent only a particular region of the country, or predominantly samples identified at the border, or be enriched for samples that have shown a particular testing result such as SGTF.
         </p>
         <p>
-          Enabled by data from <a href="//gisaid.org"><img src="/schild.png" className="inline-block h-6 ml-1" /></a>.  Source code and more information <a href="https://github.com/theosanderson/covglobe" className="underline">available on GitHub</a>.
+          Enabled by data from <a href="//gisaid.org"><img src="/schild.png" className="inline-block h-6 ml-1" /></a>.
+          Source code and more information <a href="https://github.com/covince/covglobe" className="underline whitespace-nowrap">available on GitHub</a>.
+        </p>
+        <p>
         </p>
       </div>
     </header>
