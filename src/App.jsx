@@ -35,7 +35,7 @@ function App () {
           <NavBar />
           <AppContainer>
             <CovInce
-              tiles_url="/map.json"
+              tiles_url="/map-10m.json"
               config_url="/config.json"
               avg={avgFunction}
             />

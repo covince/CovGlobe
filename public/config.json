@@ -42,16 +42,25 @@
       "default_color_scale": {
         "p": "linear",
         "lambda": "quadratic"
+      },
+      "color_map_domain": {
+        "p": {
+          "min": 0,
+          "max": 1
+        },
+        "lambda": {
+          "min": 0
+        }
       }
     },
     "viewport": {
       "min_zoom": 0,
-      "default_lat": 25.763351,
-      "default_lon": 31.115753,
+      "default_lat": 19.372070,
+      "default_lon": 6.542962,
       "default_zoom": {
         "mobile": 0,
-        "desktop": 0.46,
-        "big": 1
+        "desktop": 0.228387,
+        "big": 0.8
       },
       "bounds": {
         "min_longitude": -180,

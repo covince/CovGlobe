@@ -1117,9 +1117,9 @@ cosmiconfig@^7.0.1:
     pg-query-stream "^4.2.1"
     pg-types "^3.0.1"
 
-"covince@github:covince/covince#fde5023067b52d89f1d45ff55f27b59eab679999":
+"covince@github:covince/covince#4b0b40fb8e133885e06dcfaee1ca0a58e899f960":
   version "0.5.1"
-  resolved "https://codeload.github.com/covince/covince/tar.gz/fde5023067b52d89f1d45ff55f27b59eab679999"
+  resolved "https://codeload.github.com/covince/covince/tar.gz/4b0b40fb8e133885e06dcfaee1ca0a58e899f960"
   dependencies:
     "@headlessui/react" "^1.4.1"
     "@reach/combobox" "^0.15.1"
