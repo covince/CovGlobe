@@ -1,13 +1,24 @@
 # Map production
 
-* Based on [Natural Earth 1:50m Cultural Vectors](https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_countries.zip) (accessed 1 December 2021)
-* Simplified to 30% and filtered properties to AREA_ID_LONG and SUBREGION using [https://mapshaper.org/](https://mapshaper.org/)
-* The following mappings have been made to allow data linkage:
+* Based on [Natural Earth 1:50m cultural admin 0 countries](https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_countries.zip) (accessed 1 December 2021)
+* The following steps were applied using [https://mapshaper.org/](https://mapshaper.org/)
+  * Simplified to 30%, selecting "prevent shape removal"
+  * Deleted Antarctica
+  * Ran the following console commands:
+    * `filter-fields NAME_LONG,SUBREGION`
+    * `rename-fields 'area_id=NAME_LONG,area_description=SUBREGION'`
+* The following features (GISAID values shown) were substituted from [Natural Earth 1:50m cultural admin 0 map units](https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_map_units.zip) (accessed 2 December 2021), processed as above.
+  * French Guiana
+  * Guadeloupe
+  * Martinique
+  * Mayotte
+  * Reunion
+* The following alterations were made to allow data linkage. The GISAID value is used as the identifier and the Natural Earth value is used as the display value.
 <table>
   <thead>
     <tr>
-      <th>GISAID</th>
-      <th>Natural Earth AREA_ID_LONG</th>
+      <th>GISAID (`area_id`)</th>
+      <th>Natural Earth NAME_LONG (`area_name`)</th>
     </tr>
   </thead>
   <tbody>
@@ -32,12 +43,20 @@
       <th>Swaziland</th>
     </tr>
     <tr>
+      <th>Faroe Islands</th>
+      <th>Faeroe Islands</th>
+    </tr>
+    <tr>
       <th>Gambia</th>
       <th>The Gambia</th>
     </tr>
     <tr>
       <th>Laos</th>
       <th>Lao PDR</th>
+    </tr>
+    <tr>
+      <th>Reunion</th>
+      <th>Réunion</th>
     </tr>
     <tr>
       <th>Saint Barthelemy</th>
