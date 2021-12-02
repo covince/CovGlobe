@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { IoMdGlobe } from 'react-icons/io'
 import classNames from 'classnames'
 
+import { IoMdGlobe } from 'react-icons/io'
 import { BsInfoCircleFill } from 'react-icons/bs'
 import { AiFillCloseCircle } from 'react-icons/ai'
+
+import CovGlobeLogo from './CovGlobeLogo'
 
 const NavBar = () => {
   const [aboutOpen, setAboutOpen] = useState(false)
@@ -36,8 +38,8 @@ const NavBar = () => {
         </div> }
       <div className="container text-white px-4 py-2 md:py-0">
         <div className="h-12 md:h-14 flex justify-between items-center">
-          <NavLink className="font-bold text-2xl flex items-center" to="/">
-            <IoMdGlobe size="1.375em" className="mr-1.5" /><span>CovGlobe</span>
+          <NavLink to="/" className='flex'>
+            <CovGlobeLogo />
           </NavLink>
           <div className="text-sm flex items-center">
             <span className='hidden sm:inline'>
