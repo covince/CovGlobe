@@ -10212,7 +10212,8 @@
         ]
       },
       "properties": {
-        "area_id": "United States",
+        "area_id": "USA",
+        "area_name": "United States",
         "area_description": "Northern America"
       }
     },

@@ -19,7 +19,6 @@ genomes['country']=parts[1].str.strip()
 genomes=genomes.drop(columns="Location").rename(columns={'Pango lineage':'Lineage','Collection date':"date"})
 genomes = genomes[genomes["Lineage"]!="None"]
 lineages = genomes[genomes['date'].str.len()>7].copy()
-lineages.loc[lineages['country']=="USA","country"]="United States"
 lineages=lineages[lineages.Lineage.notna()].copy()
 countries = sorted([x for x in set(lineages.country.tolist()) if x is not None])
 lineages = lineages[lineages.date.str.match(r'202.-[0-9][0-9]-[0-9][0-9]')==True]
