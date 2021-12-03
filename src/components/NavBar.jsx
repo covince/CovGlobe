@@ -62,7 +62,7 @@ const NavBar = ({ darkMode }) => {
           /> }
         <p>
           This site displays genome data from SARS-CoV-2 sequences deposited in the GISAID global database.
-          We aggregate three week rolling averages of PANGO lineages in different locations. A select set of lineages are plotted, with other lineages grouped into their parental lineages.
+          We aggregate three week rolling averages of PANGO lineages in different locations. The selected set of lineages are plotted, with other lineages grouped into their parental lineages within the selection.
         </p>
         <p>
           <strong>Important caveat:</strong> global sequencing databases are subject to various biases. Within a country, the genomes sampled may represent only a particular region of the country, or predominantly samples identified at the border, or be enriched for samples that have shown a particular testing result such as SGTF.
