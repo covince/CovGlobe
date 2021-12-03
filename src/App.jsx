@@ -7,6 +7,9 @@ import CovInce from 'covince/src/DynamicCovInce'
 
 import NavBar from './components/NavBar'
 import CovGlobeLogo from './components/CovGlobeLogo'
+import ErrorHandler from './components/ErrorHandler'
+
+import useDarkMode from 'covince/src/hooks/useDarkMode'
 
 const twentyFourHoursInMs = 1000 * 60 * 60 * 24
 const queryClient = new QueryClient({
@@ -32,23 +35,26 @@ const Loading = () => (
 const avgFunction = count => count / 3
 
 function App () {
+  const darkMode = useDarkMode()
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        {/* <Loading /> */}
-        <Suspense fallback={<Loading />}>
-          <NavBar />
-          <AppContainer>
-            <CovInce
-              tiles_url="/map-50m.json"
-              config_url="/config.json"
-              avg={avgFunction}
-            />
-          </AppContainer>
-          <div className="text-center p-2 md:pt-0 md:pb-4 mx-5 text-sm">
-            GISAID data provided on this website are subject to <a className="underline" href="https://www.gisaid.org/registration/terms-of-use/">GISAID's Terms and Conditions</a>.
-          </div>
-        </Suspense>
+        <NavBar darkMode={darkMode} />
+        <ErrorHandler>
+          <Suspense fallback={<Loading />}>
+            <AppContainer>
+              <CovInce
+                tiles_url="/map-50m.json"
+                config_url="/config.json"
+                avg={avgFunction}
+                darkMode={darkMode.isDark}
+              />
+            </AppContainer>
+            <div className="text-center p-2 md:pt-0 md:pb-4 mx-5 text-sm">
+              GISAID data provided on this website are subject to <a className="underline" href="https://www.gisaid.org/registration/terms-of-use/">GISAID's Terms and Conditions</a>.
+            </div>
+          </Suspense>
+        </ErrorHandler>
       </QueryClientProvider>
     </>
   )
