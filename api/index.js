@@ -5,7 +5,7 @@ const app = express()
 app.set('query parser', 'simple')
 
 app.use((req, res, next) => {
-  res.setHeader('Cache-Control', 's-max-age=300')
+  res.setHeader('Cache-Control', 's-maxage=300')
   next()
 })
 
