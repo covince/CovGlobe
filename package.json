@@ -1,35 +1,17 @@
 {
-  "name": "covince",
+  "name": "covglobe",
   "version": "0.1.0",
-  "homepage": "http://theosanderson.github.io/covince",
+  "homepage": "https://covglobe.org",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "start": "vercel dev",
+    "dev": "vite --port ${PORT:-3000}",
     "build": "vite build",
     "serve": "vite preview"
   },
   "dependencies": {
-    "@vitejs/plugin-react-refresh": "^1.3.1",
-    "autoprefixer": "^10.2.4",
-    "axios": "^0.21.1",
-    "classnames": "^2.2.6",
-    "covince": "github:theosanderson/covince#c62f195ab0cbac4ed889f48d48aeb1dfdaf93ec6",
-    "date-fns": "^2.19.0",
-    "maplibre-gl": "^1.13.0-rc.5",
-    "moment": "^2.29.1",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
-    "react-icons": "^4.1.0",
-    "react-intersection-observer": "^8.31.0",
-    "react-map-gl": "^6.1.10",
-    "react-measure": "^2.5.2",
-    "react-query": "^3.13.8",
-    "react-router-dom": "^5.2.0",
-    "react-transition-group": "^4.4.1",
-    "recharts": "^2.0.4",
-    "tailwindcss": "^2.0.3",
-    "vite": "^2.0.5",
-    "web-vitals": "^0.2.4"
+    "covince": "github:covince/covince#v1.0.0",
+    "covince-backend": "github:covince/covince-backend#v1.0.0"
   },
   "devDependencies": {
     "all-contributors-cli": "^6.20.0",
@@ -39,6 +21,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.22.0",
-    "rollup-plugin-analyzer": "^4.0.0"
+    "rollup-plugin-analyzer": "^4.0.0",
+    "vercel": "^23.1.2"
   }
 }

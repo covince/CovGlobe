@@ -1,0 +1,87 @@
+{
+  "dynamic_mode": {
+    "initial_lineages": {
+      "A": 7,
+      "B": 3,
+      "B.1.1.7": 1,
+      "B.1.177": 0,
+      "B.1.351": 4,
+      "B.1.1.529": 8,
+      "B.1.617.2": 6,
+      "P.1": 2
+    }
+  },
+  "parameters": [
+    {
+      "id": "lambda",
+      "display": "Genomes per week"
+    },
+    {
+      "id": "p",
+      "display": "Proportion",
+      "format": "percentage",
+      "precision": 2
+    }
+  ],
+  "ontology": {
+    "overview": {
+      "category": "Region",
+      "heading": "Global Overview",
+      "short_heading": "World"
+    },
+    "area": {
+      "category": "Country",
+      "noun_plural": "countries",
+      "_search_placeholder": "local authority or postcode"
+    }
+  },
+  "map": {
+    "settings": {
+      "default_lineage": "B.1.617.2",
+      "default_color_by": "p",
+      "default_color_scale": {
+        "p": "linear",
+        "lambda": "quadratic"
+      },
+      "color_map_domain": {
+        "p": {
+          "min": 0,
+          "max": 1
+        },
+        "lambda": {
+          "min": 0
+        }
+      }
+    },
+    "viewport": {
+      "min_zoom": 0,
+      "default_lat": 19.372070,
+      "default_lon": 6.542962,
+      "default_zoom": {
+        "mobile": 0,
+        "desktop": 0.228387,
+        "big": 0.8
+      },
+      "bounds": {
+        "min_longitude": -180,
+        "max_longitude": 180,
+        "min_latitude": -180,
+        "max_latitude": 180
+      }
+    }
+  },
+  "charts": [
+    {
+      "parameter": "lambda",
+      "heading": "Genomes per week",
+      "default_type": "line",
+      "allow_stack": true
+    },
+    {
+      "parameter": "p",
+      "heading": "Proportion",
+      "default_type": "area",
+      "allow_stack": true
+    }
+  ]
+}
