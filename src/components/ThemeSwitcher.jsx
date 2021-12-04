@@ -21,6 +21,7 @@ const ThemeForm = ({ className, mode, setMode, SystemIcon = BsDisplay }) => (
       onClick={() => setMode('system')}
       title='System preference'
     >
+      <span className='sr-only'>System preference</span>
       <SystemIcon className='h-4 w-4' />
     </ThemeButton>
     <ThemeButton
@@ -28,6 +29,7 @@ const ThemeForm = ({ className, mode, setMode, SystemIcon = BsDisplay }) => (
       onClick={() => setMode('light')}
       title='Light mode'
     >
+      <span className='sr-only'>Light mode</span>
       <BsBrightnessHighFill className='h-4 w-4' />
     </ThemeButton>
     <ThemeButton
@@ -35,6 +37,7 @@ const ThemeForm = ({ className, mode, setMode, SystemIcon = BsDisplay }) => (
       onClick={() => setMode('dark')}
       title='Dark mode'
     >
+      <span className='sr-only'>Dark mode</span>
       <BsMoonFill className='h-4 w-4' />
     </ThemeButton>
   </form>

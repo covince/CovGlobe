@@ -357,6 +357,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@popperjs/core@^2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.0.tgz#6734f8ebc106a0860dff7f92bf90df193f0935d7"
+  integrity sha512-zrsUxjLOKAzdewIDRWy9nsV1GQsKBCWaGwsZQlCgr6/q+vjyZhFgqedLfFBuI9anTPEUT4APq9Mu0SZBTzIcGQ==
+
 "@reach/auto-id@0.15.3":
   version "0.15.3"
   resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.15.3.tgz#23b6ae8de3bf7520044c95a85c992ae46cdcef9c"
@@ -1105,9 +1110,9 @@ cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-"covince-backend@github:covince/covince-backend#7a74c0692c9a6db693722aeed0885492f2499fa2":
-  version "0.0.1"
-  resolved "https://codeload.github.com/covince/covince-backend/tar.gz/7a74c0692c9a6db693722aeed0885492f2499fa2"
+"covince-backend@github:covince/covince-backend#v1.0.0":
+  version "1.0.0"
+  resolved "https://codeload.github.com/covince/covince-backend/tar.gz/890d834f580ae1f44f46563c230a90f851ec0487"
   dependencies:
     cors "^2.8.5"
     express "^4.17.1"
@@ -1117,11 +1122,12 @@ cosmiconfig@^7.0.1:
     pg-query-stream "^4.2.1"
     pg-types "^3.0.1"
 
-"covince@github:covince/covince#fb0bf0c78f4285ee8427eeaa808a7733a8cd0840":
-  version "0.5.1"
-  resolved "https://codeload.github.com/covince/covince/tar.gz/fb0bf0c78f4285ee8427eeaa808a7733a8cd0840"
+"covince@github:covince/covince#v1.0.0":
+  version "1.0.0"
+  resolved "https://codeload.github.com/covince/covince/tar.gz/3196eebe1f4d314b6ec801fe48933847a114b839"
   dependencies:
     "@headlessui/react" "^1.4.1"
+    "@popperjs/core" "^2.11.0"
     "@reach/combobox" "^0.15.1"
     "@tailwindcss/forms" "^0.3.3"
     "@vitejs/plugin-react-refresh" "^1.3.3"
@@ -1139,6 +1145,7 @@ cosmiconfig@^7.0.1:
     react-intersection-observer "^8.31.0"
     react-map-gl "^6.1.10"
     react-measure "^2.5.2"
+    react-popper "^2.2.5"
     react-query "^3.13.8"
     react-router-dom "^5.2.0"
     react-transition-group "^4.4.1"
@@ -2674,7 +2681,7 @@ lodash@^4.11.2, lodash@^4.17.19, lodash@^4.17.21:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
-loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -3543,6 +3550,11 @@ react-dom@^17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
+react-fast-compare@^3.0.1:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
+  integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
+
 react-icons@^4.1.0:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.3.1.tgz#2fa92aebbbc71f43d2db2ed1aed07361124e91ca"
@@ -3586,6 +3598,14 @@ react-measure@^2.5.2:
     get-node-dimensions "^1.2.1"
     prop-types "^15.6.2"
     resize-observer-polyfill "^1.5.0"
+
+react-popper@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-2.2.5.tgz#1214ef3cec86330a171671a4fbcbeeb65ee58e96"
+  integrity sha512-kxGkS80eQGtLl18+uig1UIf9MKixFSyPxglsgLBxlYnyDf65BiY9B3nZSc6C9XUNDgStROB0fMQlTEz1KxGddw==
+  dependencies:
+    react-fast-compare "^3.0.1"
+    warning "^4.0.2"
 
 react-query@^3.13.8:
   version "3.33.5"
@@ -4495,6 +4515,13 @@ vt-pbf@^3.1.1, vt-pbf@^3.1.3:
     "@mapbox/point-geometry" "0.1.0"
     "@mapbox/vector-tile" "^1.3.1"
     pbf "^3.2.1"
+
+warning@^4.0.2:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/warning/-/warning-4.0.3.tgz#16e9e077eb8a86d6af7d64aa1e05fd85b4678ca3"
+  integrity sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
+  dependencies:
+    loose-envify "^1.0.0"
 
 web-vitals@^0.2.4:
   version "0.2.4"

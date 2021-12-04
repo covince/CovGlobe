@@ -16,7 +16,7 @@ const NavBar = ({ darkMode }) => {
 
   return (
     <header className={classNames(
-      'transition-all duration-500 ease-in-out bg-blue-900',
+      'transition-all duration-500 ease-in-out bg-blue-900 dark:bg-indigo-900',
       aboutOpen ? 'h-auto md:h-80 xl:h-64' : 'h-header md:h-header-md'
     )}
     >
@@ -57,7 +57,7 @@ const NavBar = ({ darkMode }) => {
         { isMobile &&
           <ThemeSwitcher
             {...darkMode}
-            className='text-center space-x-5'
+            className='text-center space-x-6'
             SystemIcon={BsPhone}
           /> }
         <p>

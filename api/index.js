@@ -2,9 +2,7 @@ const express = require('express')
 const middleware = require('covince-backend/middleware')
 
 const app = express()
-
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.set('query parser', 'simple')
 
 app.use((req, res, next) => {
   res.setHeader('Cache-Control', 's-max-age=300')
