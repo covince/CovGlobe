@@ -21,6 +21,8 @@ CovGlobe displays GISAID data on pango lineages on a spatiotemporal map.
   </tr>
 </table>
 
+CovGlobe uses the [CovInce](https://github.com/covince/covince) framework. 
+
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
