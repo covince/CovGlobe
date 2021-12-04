@@ -6,7 +6,11 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-// app.get('/api', (res, req) => { req.json({ hello: 'world' }) })
+app.use((req, res, next) => {
+  res.setHeader('Cache-Control', 's-max-age=300')
+  next()
+})
+
 app.use('/api', middleware)
 
 app.use(function errorHandler (err, req, res, next) {
