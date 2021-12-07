@@ -1110,21 +1110,21 @@ cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-"covince-backend@github:covince/covince-backend#v1.0.0":
-  version "1.0.0"
-  resolved "https://codeload.github.com/covince/covince-backend/tar.gz/890d834f580ae1f44f46563c230a90f851ec0487"
+"covince-backend@github:covince/covince-backend#v1.1.0":
+  version "1.1.0"
+  resolved "https://codeload.github.com/covince/covince-backend/tar.gz/a37ed785e006c69827705b37f588559361c5c234"
   dependencies:
     cors "^2.8.5"
     express "^4.17.1"
     knex "^0.95.7"
-    pango-utils "^1.0.0"
+    pango-utils "github:covince/pango-utils#v1.2.0"
     pg "^8.6.0"
     pg-query-stream "^4.2.1"
     pg-types "^3.0.1"
 
-"covince@github:covince/covince#v1.0.1":
-  version "1.0.1"
-  resolved "https://codeload.github.com/covince/covince/tar.gz/846c3552b7809a9e340e6c2765ddce63b331cbc3"
+"covince@github:covince/covince#v1.1.0":
+  version "1.1.0"
+  resolved "https://codeload.github.com/covince/covince/tar.gz/02d05e99af59241538eab8d2d1dda2124dd22bce"
   dependencies:
     "@headlessui/react" "^1.4.1"
     "@popperjs/core" "^2.11.0"
@@ -1137,7 +1137,7 @@ cosmiconfig@^7.0.1:
     date-fns "^2.19.0"
     maplibre-gl "^1.13.0-rc.5"
     moment "^2.29.1"
-    pango-utils "^1.0.0"
+    pango-utils "github:covince/pango-utils#v1.2.0"
     postcss-nested "^5.0.5"
     react "^17.0.2"
     react-dom "^17.0.2"
@@ -3143,10 +3143,9 @@ packet-reader@1.0.0:
   resolved "https://registry.yarnpkg.com/packet-reader/-/packet-reader-1.0.0.tgz#9238e5480dedabacfe1fe3f2771063f164157d74"
   integrity sha512-HAKu/fG3HpHFO0AA8WE8q2g+gBJaZ9MG7fcKk+IJPLTGAD6Psw4443l+9DGRbOIh3/aXr7Phy0TjilYivJo5XQ==
 
-pango-utils@^1.0.0:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/pango-utils/-/pango-utils-1.1.2.tgz#6606c313ca8fb55b03d83fcb9b8044b8e946033a"
-  integrity sha512-TXGGhe3BXBzd5anG4lZyyT4ei7saoUoW8hipjEVjKC25hLyVS4K7+oXSOdWKG8P82jPVWHGmpoHtRrKWvMMzAQ==
+"pango-utils@github:covince/pango-utils#v1.2.0":
+  version "1.2.0"
+  resolved "https://codeload.github.com/covince/pango-utils/tar.gz/490c7ca9b683f0e7c51812b36a1dab9f0816bdaa"
 
 parent-module@^1.0.0:
   version "1.0.1"
