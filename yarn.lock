@@ -1122,9 +1122,9 @@ cosmiconfig@^7.0.1:
     pg-query-stream "^4.2.1"
     pg-types "^3.0.1"
 
-"covince@github:covince/covince#v1.0.0":
-  version "1.0.0"
-  resolved "https://codeload.github.com/covince/covince/tar.gz/3196eebe1f4d314b6ec801fe48933847a114b839"
+"covince@github:covince/covince#v1.0.1":
+  version "1.0.1"
+  resolved "https://codeload.github.com/covince/covince/tar.gz/846c3552b7809a9e340e6c2765ddce63b331cbc3"
   dependencies:
     "@headlessui/react" "^1.4.1"
     "@popperjs/core" "^2.11.0"
