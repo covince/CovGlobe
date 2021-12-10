@@ -1,5 +1,5 @@
 const express = require('express')
-const middleware = require('covince-backend/middleware')
+const createMiddleware = require('covince-backend/middleware')
 
 const app = express()
 app.set('query parser', 'simple')
@@ -9,7 +9,8 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use('/api', middleware)
+const knex = require('covince-backend/db')
+app.use('/api', createMiddleware(knex))
 
 app.use(function errorHandler (err, req, res, next) {
   if (res.headersSent) {
