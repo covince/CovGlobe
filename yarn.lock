@@ -1110,9 +1110,9 @@ cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-"covince-backend@github:covince/covince-backend#v1.1.0":
-  version "1.1.0"
-  resolved "https://codeload.github.com/covince/covince-backend/tar.gz/a37ed785e006c69827705b37f588559361c5c234"
+"covince-backend@github:covince/covince-backend#v1.1.1":
+  version "1.1.1"
+  resolved "https://codeload.github.com/covince/covince-backend/tar.gz/b5bcb975e1823e0ef88dfec667990a81ddd41da9"
   dependencies:
     cors "^2.8.5"
     express "^4.17.1"
