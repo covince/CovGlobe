@@ -10,7 +10,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "covince": "github:covince/covince#4f3d8b97894ca42faa53049066b54bec31f82c5e",
+    "covince": "github:covince/covince#v1.1.3",
     "covince-backend": "github:covince/covince-backend#v1.1.1"
   },
   "devDependencies": {
