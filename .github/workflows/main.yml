@@ -37,12 +37,11 @@ jobs:
       - name: Aggregate
         run: python process_gisaid.py
         working-directory: ./data_processing/
-      - name: Upload
-        uses: actions/upload-artifact@v2
-        with: 
-          name: aggregated-csv
-          path: ./data_processing/full_data_table.csv
-
+      # - name: Upload
+      #   uses: actions/upload-artifact@v2
+      #   with: 
+      #     name: aggregated-csv
+      #     path: ./data_processing/full_data_table.csv
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh/
