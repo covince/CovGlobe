@@ -70,18 +70,26 @@
       }
     }
   },
-  "charts": [
-    {
-      "parameter": "lambda",
-      "heading": "Genomes per week",
-      "default_type": "line",
-      "allow_stack": true
+  "chart": {
+    "settings": {
+      "csv_download": false,
+      "tooltip": {
+        "use_nomenclature": false
+      }
     },
-    {
-      "parameter": "p",
-      "heading": "Proportion",
-      "default_type": "area",
-      "allow_stack": true
-    }
-  ]
+    "definitions": [
+      {
+        "parameter": "lambda",
+        "heading": "Genomes per week",
+        "default_type": "line",
+        "allow_stack": true
+      },
+      {
+        "parameter": "p",
+        "heading": "Proportion",
+        "default_type": "area",
+        "allow_stack": true
+      }
+    ]
+  }
 }
