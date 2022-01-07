@@ -1110,21 +1110,21 @@ cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-"covince-backend@github:covince/covince-backend#v1.1.1":
-  version "1.1.1"
-  resolved "https://codeload.github.com/covince/covince-backend/tar.gz/b5bcb975e1823e0ef88dfec667990a81ddd41da9"
+"covince-backend@github:covince/covince-backend#v1.2.0":
+  version "1.2.0"
+  resolved "https://codeload.github.com/covince/covince-backend/tar.gz/10c9be7f4358eed72dac3ccaee3c0abb955914e4"
   dependencies:
     cors "^2.8.5"
     express "^4.17.1"
     knex "^0.95.7"
-    pango-utils "github:covince/pango-utils#v1.2.0"
+    pango-utils "github:covince/pango-utils#v1.3.0"
     pg "^8.6.0"
     pg-query-stream "^4.2.1"
     pg-types "^3.0.1"
 
-"covince@github:covince/covince#v1.3.0":
-  version "1.3.0"
-  resolved "https://codeload.github.com/covince/covince/tar.gz/0ef2959b0332517ba89cb99e5b4d704f87111a9b"
+"covince@github:covince/covince#v1.4.0":
+  version "1.4.0"
+  resolved "https://codeload.github.com/covince/covince/tar.gz/e2006e3e2539297869fb5d6b632455934cb22de1"
   dependencies:
     "@headlessui/react" "^1.4.1"
     "@popperjs/core" "^2.11.0"
@@ -1137,7 +1137,7 @@ cosmiconfig@^7.0.1:
     date-fns "^2.19.0"
     maplibre-gl "^1.13.0-rc.5"
     moment "^2.29.1"
-    pango-utils "github:covince/pango-utils#v1.2.0"
+    pango-utils "github:covince/pango-utils#v1.3.0"
     postcss-nested "^5.0.5"
     react "^17.0.2"
     react-dom "^17.0.2"
@@ -3143,9 +3143,9 @@ packet-reader@1.0.0:
   resolved "https://registry.yarnpkg.com/packet-reader/-/packet-reader-1.0.0.tgz#9238e5480dedabacfe1fe3f2771063f164157d74"
   integrity sha512-HAKu/fG3HpHFO0AA8WE8q2g+gBJaZ9MG7fcKk+IJPLTGAD6Psw4443l+9DGRbOIh3/aXr7Phy0TjilYivJo5XQ==
 
-"pango-utils@github:covince/pango-utils#v1.2.0":
-  version "1.2.0"
-  resolved "https://codeload.github.com/covince/pango-utils/tar.gz/490c7ca9b683f0e7c51812b36a1dab9f0816bdaa"
+"pango-utils@github:covince/pango-utils#v1.3.0":
+  version "1.3.0"
+  resolved "https://codeload.github.com/covince/pango-utils/tar.gz/ac023b63c3d23158c534528cf5da8acf66e2858a"
 
 parent-module@^1.0.0:
   version "1.0.1"
