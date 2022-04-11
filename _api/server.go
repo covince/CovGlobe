@@ -23,6 +23,8 @@ func getCleanMuts(s string) []string {
 	return strings.Split(s, "|")
 }
 
+const MUT_SEPARATOR = "_"
+
 func addRecordToDatabase(db *covince.Database, row []string) {
 	if len(row) != 5 {
 		fmt.Println(row)
@@ -37,7 +39,7 @@ func addRecordToDatabase(db *covince.Database, row []string) {
 			Area:       db.IndexValue(row[0]),
 			Date:       db.IndexValue(row[1]),
 			PangoClade: db.IndexValue(row[2]),
-			Mutations:  db.IndexMutations(getCleanMuts(row[3])),
+			Mutations:  db.IndexMutations(getCleanMuts(row[3]), MUT_SEPARATOR),
 			Count:      count,
 		},
 	)
@@ -78,7 +80,7 @@ func main() {
 
 	log.Println("Reading data ...")
 
-	csvfile, err := os.Open("aggregated.csv.gz")
+	csvfile, err := os.Open("./data/aggregated.csv.gz")
 	if err != nil {
 		log.Fatalln("Couldn't open the csv file", err)
 	}
@@ -91,12 +93,24 @@ func main() {
 		log.Fatalln("Couldn't establish gzip", err)
 	}
 	scanner := bufio.NewScanner(unzipped)
+	buf := []byte{}
+	// increase the buffer size to 2Mb
+	scanner.Buffer(buf, 2048*1024)
 	db := covince.CreateDatabase()
 
+	i := 0
 	for scanner.Scan() {
+		i++
 		row := strings.Split(scanner.Text(), ",")
+		// fmt.Println(row)
 		addRecordToDatabase(db, row)
 	}
+
+	if err := scanner.Err(); err != nil {
+		log.Fatalf("%v", err)
+	}
+
+	log.Println(i, "iterated")
 	log.Println(db.Count, "records")
 	for k := range db.MutationLookup {
 		delete(db.MutationLookup, k)
@@ -106,14 +120,14 @@ func main() {
 	}
 
 	opts := api.Opts{
-		Genes:             db.Genes,
-		LastModified:      stat.ModTime().UnixMilli(),
-		MaxLineages:       20,
-		MaxSearchResults:  32,
-		MultipleMuts:      env.multiMuts,
-		MutSuppressionMin: env.mutSuppressionMin,
-		PathPrefix:        "/api/raw",
-		Threads:           env.threads,
+		Genes:            db.Genes,
+		LastModified:     stat.ModTime().UnixMilli(),
+		MaxLineages:      20,
+		MaxSearchResults: 32,
+		MultipleMuts:     true,
+		MutSeparator:     MUT_SEPARATOR,
+		PathPrefix:       "/api",
+		Threads:          env.threads,
 	}
 
 	chunkSize := db.Count / opts.Threads

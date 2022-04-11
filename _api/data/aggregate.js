@@ -26,7 +26,7 @@ async function aggregate () {
       country = covv_location.split(' / ')[1],
       covv_lineage: lineage,
       covsurver_prot_mutations,
-      mutations = covsurver_prot_mutations.slice(1, -1)
+      mutations = covsurver_prot_mutations.slice(1, -1).split(',').sort().join('|')
     } = JSON.parse(line)
     if (!lineage || lineage === 'None' || !dateRegex.test(date)) {
       continue
@@ -50,13 +50,17 @@ async function aggregate () {
 
   console.log('Writing output ...')
   fs.writeFileSync('./aggregated.csv', '')
-  const lines = Object.entries(counts).map(([key, count]) => `${key},${count}`)
+  const keys = Object.keys(counts)
   const chunkSize = 100000
   let i = 0
-  while (i < lines.length) {
-    const chunk = lines.slice(i, i + chunkSize).join('\n')
+  while (i < keys.length) {
+    let chunk =
+      keys.slice(i, i + chunkSize)
+        .map(k => `${k},${counts[k]}`)
+        .join('\n')
     fs.appendFileSync('./aggregated.csv', chunk + '\n')
     i += chunkSize
+    chunk = null
   }
 }
 

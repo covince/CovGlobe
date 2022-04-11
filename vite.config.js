@@ -41,9 +41,7 @@ export default defineConfig({
     proxy: {
       '/api/': {
         target: 'http://0.0.0.0:4000',
-        changeOrigin: true,
-        timeout: 1000,
-        proxyTimeout: 1000
+        changeOrigin: true
       }
     }
   },
