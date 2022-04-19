@@ -6,7 +6,7 @@
   "scripts": {
     "start": "vercel dev",
     "dev": "vite --port ${PORT:-3000}",
-    "build": "vite build",
+    "build": "./bin/build.sh",
     "serve": "vite preview"
   },
   "dependencies": {
