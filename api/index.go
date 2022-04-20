@@ -2,6 +2,8 @@ package covglobe
 
 import (
 	"bufio"
+	"embed"
+	"log"
 	"net/http"
 	"strconv"
 	"strings"
@@ -11,12 +13,15 @@ import (
 	"github.com/covince/covince-backend-v2/covince"
 )
 
-// //go:embed "full_data_table.csv"
-// var f embed.FS
+//go:embed "full_data_table.csv"
+var f embed.FS
 
 func iterator(agg func(r *covince.Record), i int) {
+	csvfile, err := f.Open("full_data_table.csv")
+	if err != nil {
+		log.Fatalln("Couldn't open the csv file", err)
+	}
 
-	csvfile := CSV()
 	c := make(chan covince.Record, 500)
 	done := make(chan bool)
 	go func() {
