@@ -32,10 +32,11 @@ jobs:
       - name: Download file
         run: curl -u ${{secrets.GISAID_USERNAME}}:${{secrets.GISAID_PW}} https://www.epicov.org/epi3/3p/varsurv02/export/provision.json.xz | xz -d -T0  > ./provision.json
         working-directory: ./data_processing/
-      - name: Aggregate
+      - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
+      - name: Aggregate
         run: ./aggregate.sh
         working-directory: ./data_processing/
       - name: Copy
