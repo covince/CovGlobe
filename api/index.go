@@ -7,8 +7,6 @@ import (
 	"strings"
 	"time"
 
-	"covglobe/data_processing"
-
 	"github.com/covince/covince-backend-v2/api"
 	"github.com/covince/covince-backend-v2/covince"
 )
@@ -18,7 +16,7 @@ import (
 
 func iterator(agg func(r *covince.Record), i int) {
 
-	csvfile := data_processing.CSV()
+	csvfile := CSV()
 	c := make(chan covince.Record, 500)
 	done := make(chan bool)
 	go func() {
