@@ -13,11 +13,11 @@ import (
 	"github.com/covince/covince-backend-v2/covince"
 )
 
-//go:embed "full_data_table.csv"
+//go:embed "aggregated.csv"
 var f embed.FS
 
 func iterator(agg func(r *covince.Record), i int) {
-	csvfile, err := f.Open("full_data_table.csv")
+	csvfile, err := f.Open("aggregated.csv")
 	if err != nil {
 		log.Fatalln("Couldn't open the csv file", err)
 	}
@@ -45,9 +45,9 @@ func iterator(agg func(r *covince.Record), i int) {
 		count, _ := strconv.Atoi(row[3])
 
 		c <- covince.Record{
-			PangoClade: db.IndexValue(row[0] + "."),
+			Area:       db.IndexValue(row[0]),
 			Date:       db.IndexValue(row[1]),
-			Area:       db.IndexValue(row[2]),
+			PangoClade: db.IndexValue(row[2]),
 			// Lineage:    db.IndexValue(row[2]),
 			Count: count,
 		}
