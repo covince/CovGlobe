@@ -43,6 +43,8 @@ jobs:
         run: cp ./data_processing/aggregated.csv ./api/aggregated.csv
       # https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
       - name: Upload
+        permissions:
+          contents: "write"
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
