@@ -1031,9 +1031,9 @@ cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-"covince@github:covince/covince#00a654f9a75a0e41c757cd3428747a0d4fb7c24f":
+"covince@github:covince/covince#3ed86c4e7f5384d8d96a5778a780ce4ab3754311":
   version "1.4.0"
-  resolved "https://codeload.github.com/covince/covince/tar.gz/00a654f9a75a0e41c757cd3428747a0d4fb7c24f"
+  resolved "https://codeload.github.com/covince/covince/tar.gz/3ed86c4e7f5384d8d96a5778a780ce4ab3754311"
   dependencies:
     "@headlessui/react" "^1.5.0"
     "@popperjs/core" "^2.11.0"
