@@ -28,7 +28,7 @@ async function aggregate () {
       // covsurver_prot_mutations,
       // mutations = covsurver_prot_mutations.slice(1, -1).split(',').sort().join('|')
     } = JSON.parse(line)
-    if (!lineage || lineage === 'None' || !dateRegex.test(date)) {
+    if (!lineage || lineage === 'Unassigned' || !dateRegex.test(date)) {
       continue
     }
     const fuzzyDate = fuzzDate(date)
