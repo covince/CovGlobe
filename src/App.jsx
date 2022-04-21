@@ -48,6 +48,7 @@ function App () {
                 config_url="/config.json"
                 avg={avgFunction}
                 darkMode={darkMode.isDark}
+                smoothing={3}
               />
             </AppContainer>
             <div className="text-center p-2 md:pt-0 md:pb-4 mx-5 text-sm">
