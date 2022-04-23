@@ -31,6 +31,9 @@ async function aggregate () {
     if (!lineage || lineage === 'Unassigned' || !dateRegex.test(date)) {
       continue
     }
+    if (!(covv_location.includes('America'))) {
+      continue
+    }
     const fuzzyDate = fuzzDate(date)
 
     const key = [

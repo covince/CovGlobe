@@ -9,7 +9,7 @@ import NavBar from './components/NavBar'
 import CovGlobeLogo from './components/CovGlobeLogo'
 import ErrorHandler from './components/ErrorHandler'
 
-import useDarkMode from 'covince/src/hooks/useDarkMode'
+// import useDarkMode from 'covince/src/hooks/useDarkMode'
 
 const twentyFourHoursInMs = 1000 * 60 * 60 * 24
 const queryClient = new QueryClient({
@@ -24,10 +24,11 @@ const queryClient = new QueryClient({
 })
 
 const Loading = () => (
-  <div className='fixed inset-0 grid place-content-center bg-blue-900 dark:bg-indigo-900 text-white'>
+  <div className='fixed inset-0 grid place-content-center bg-white text-primary'>
     <div className='flex flex-col space-y-5 items-center mb-6'>
       <Spinner className='w-6 h-6' />
-      <CovGlobeLogo />
+      <img src='/paho-logo.webp' alt='PAHO' className='px-6 md:h-16'/>
+      {/* <CovGlobeLogo /> */}
     </div>
   </div>
 )
@@ -35,11 +36,11 @@ const Loading = () => (
 const avgFunction = count => count / 3
 
 function App () {
-  const darkMode = useDarkMode()
+  // const darkMode = useDarkMode()
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <NavBar darkMode={darkMode} />
+        <NavBar darkMode={{}} />
         <ErrorHandler>
           <Suspense fallback={<Loading />}>
             <AppContainer>
@@ -47,13 +48,13 @@ function App () {
                 tiles_url="/map-50m.json"
                 config_url="/config.json"
                 avg={avgFunction}
-                darkMode={darkMode.isDark}
+                // darkMode={darkMode.isDark}
                 smoothing={3}
               />
             </AppContainer>
-            <div className="text-center p-2 md:pt-0 md:pb-4 mx-5 text-sm">
+            {/* <div className="text-center p-2 md:pt-0 md:pb-4 mx-5 text-sm">
               GISAID data provided on this website are subject to <a className="underline" href="https://www.gisaid.org/registration/terms-of-use/">GISAID's Terms and Conditions</a>.
-            </div>
+            </div> */}
           </Suspense>
         </ErrorHandler>
       </QueryClientProvider>

@@ -8,7 +8,8 @@
 } */
 
 html, body {
-	@apply leading-6 text-base font-normal p-0 m-0 text-gray-800 bg-gray-100;	
+	@apply leading-6 text-base font-normal p-0 m-0 bg-gray-100;
+  color: rgb(51, 51, 51);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -39,6 +40,10 @@ html, body {
   .container {
     @apply px-6;
   }
+}
+
+.recharts-cartesian-axis-tick-value {
+  font-variant-numeric: proportional-nums;
 }
 
 /* Debug */
