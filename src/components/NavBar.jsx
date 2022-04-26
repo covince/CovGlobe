@@ -23,11 +23,11 @@ const NavBar = ({ darkMode }) => {
       <div className="container text-white px-4 py-2 md:py-0">
         <div className="h-12 md:h-20 flex items-center space-x-6">
           <NavLink to="/" className=''>
-            <img src='/paho-logo.webp' alt='PAHO' className='h-full md:h-16'/>
+            <h2 className='font-bold font-heading text-xl text-primary proportional-nums hidden md:block px-5'>
+              PAHO Covid-19 Genomic Surveillance
+            </h2>
+            {/* <img src='/paho-logo.webp' alt='PAHO' className='h-full md:h-16'/> */}
           </NavLink>
-          <h2 className='font-bold font-heading text-xl text-primary proportional-nums hidden md:block'>
-            Covid-19 Genomic Surveillance
-          </h2>
         </div>
       </div>
     </header>

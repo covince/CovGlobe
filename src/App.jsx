@@ -27,7 +27,7 @@ const Loading = () => (
   <div className='fixed inset-0 grid place-content-center bg-white text-primary'>
     <div className='flex flex-col space-y-5 items-center mb-6'>
       <Spinner className='w-6 h-6' />
-      <img src='/paho-logo.webp' alt='PAHO' className='px-6 md:h-16'/>
+      {/* <img src='/paho-logo.webp' alt='PAHO' className='px-6 md:h-16'/> */}
       {/* <CovGlobeLogo /> */}
     </div>
   </div>
@@ -40,7 +40,7 @@ function App () {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <NavBar darkMode={{}} />
+        <NavBar />
         <ErrorHandler>
           <Suspense fallback={<Loading />}>
             <AppContainer>
