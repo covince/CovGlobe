@@ -23,7 +23,7 @@ async function aggregate () {
     const {
       covv_collection_date: date,
       covv_location,
-      country = covv_location.split(' / ')[1],
+      country = covv_location.split('/')[1].trim(),
       covv_lineage: lineage
       // covsurver_prot_mutations,
       // mutations = covsurver_prot_mutations.slice(1, -1).split(',').sort().join('|')
@@ -32,7 +32,9 @@ async function aggregate () {
       continue
     }
     const fuzzyDate = fuzzDate(date)
-
+    // if (fuzzyDate < '2020-03-01') {
+    //   continue
+    // }
     const key = [
       country,
       fuzzyDate,
