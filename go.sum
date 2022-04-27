@@ -1,2 +1,1 @@
-github.com/covince/covince-backend-v2 v0.0.0-20220411191627-3baa19b84864 h1:wmmC7OU34rpjpqK0ubhvgETXvQdnh0DREnCy+wvfV3A=
-github.com/covince/covince-backend-v2 v0.0.0-20220411191627-3baa19b84864/go.mod h1:tUzb8my1OLFqH7DHUKmk284XZUbdDAeEQBZDGGG3QCI=
+github.com/covince/covince-backend-v2 v1.0.0/go.mod h1:tUzb8my1OLFqH7DHUKmk284XZUbdDAeEQBZDGGG3QCI=
