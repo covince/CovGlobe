@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '0 5 * * *'
+    - cron: "0 5 * * *"
 
 permissions:
   contents: read
@@ -19,44 +19,35 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  download-aggregate-update:
+  download-aggregate-commit:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: production
+    permissions:
+      contents: "write"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} 
-      - name: Install pandas
-        run: pip install pandas tqdm
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Download file
         run: curl -u ${{secrets.GISAID_USERNAME}}:${{secrets.GISAID_PW}} https://www.epicov.org/epi3/3p/varsurv02/export/provision.json.xz | xz -d -T0  > ./provision.json
         working-directory: ./data_processing/
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
       - name: Aggregate
-        run: python process_gisaid.py
+        run: ./aggregate.sh
         working-directory: ./data_processing/
-      - name: Upload
-        uses: actions/upload-artifact@v2
-        with: 
-          name: aggregated-csv
-          path: ./data_processing/full_data_table.csv
-
-      - name: Configure SSH
+      - name: Copy
+        run: cp ./data_processing/aggregated.csv ./api/aggregated.csv
+      # https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
+      - name: Commit
         run: |
-          mkdir -p ~/.ssh/
-          echo "$SSH_KEY" > ~/.ssh/db.key
-          chmod 600 ~/.ssh/db.key
-          cat >>~/.ssh/config <<END
-          Host *
-            IdentityFile ~/.ssh/db.key
-            StrictHostKeyChecking no
-          END
-        env:
-          SSH_KEY: ${{ secrets.SSH_KEY }}
-      - name: copy file
-        run: scp full_data_table.csv ${{ secrets.SSH_TARGET }}:/tmp/input.csv 2>/dev/null
-        working-directory: ./data_processing/
-      - name: do remote update
-        run: ssh ${{ secrets.SSH_TARGET }} -C './update.sh' 2>/dev/null 
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "Update data"
+          git push
