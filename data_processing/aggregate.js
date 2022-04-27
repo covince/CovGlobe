@@ -32,9 +32,9 @@ async function aggregate () {
       continue
     }
     const fuzzyDate = fuzzDate(date)
-    // if (fuzzyDate < '2020-03-01') {
-    //   continue
-    // }
+    if (fuzzyDate < '2020-03-01') {
+      continue
+    }
     const key = [
       country,
       fuzzyDate,
