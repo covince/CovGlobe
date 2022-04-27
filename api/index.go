@@ -34,12 +34,7 @@ func iterator(agg func(r *covince.Record), i int) {
 	db := covince.CreateDatabase()
 
 	scanner := bufio.NewScanner(csvfile)
-	firstLine := true
 	for scanner.Scan() {
-		if firstLine {
-			firstLine = false
-			continue
-		}
 		row := strings.Split(scanner.Text(), ",")
 
 		count, _ := strconv.Atoi(row[3])
