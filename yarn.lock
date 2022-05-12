@@ -249,7 +249,7 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@headlessui/react@^1.5.0":
+"@headlessui/react@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.5.0.tgz#483b44ba2c8b8d4391e1d2c863898d7dd0cc0296"
   integrity sha512-aaRnYxBb3MU2FNJf3Ut9RMTUqqU3as0aI1lQhgo2n9Fa67wRu14iOGqx93xB+uMNVfNwZ5B3y/Ndm7qZGuFeMQ==
@@ -1031,11 +1031,11 @@ cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-"covince@github:covince/covince#v2.0.0":
-  version "2.0.0"
-  resolved "https://codeload.github.com/covince/covince/tar.gz/f3e2efb3da0beb0c52ab736ce955a2a2c39533bd"
+"covince@github:covince/covince#v2.0.5":
+  version "2.0.5"
+  resolved "https://codeload.github.com/covince/covince/tar.gz/31fa9e96f70503dc3ec56f69d61d4702a3eab2fe"
   dependencies:
-    "@headlessui/react" "^1.5.0"
+    "@headlessui/react" "1.5.0"
     "@popperjs/core" "^2.11.0"
     "@reach/combobox" "^0.15.1"
     "@tailwindcss/forms" "^0.3.3"
