@@ -44,7 +44,6 @@ function App () {
           <Suspense fallback={<Loading />}>
             <AppContainer>
               <CovInce
-                aliases_key="/alias_key.json"
                 tiles_url="/map-50m.json"
                 config_url="/config.json"
                 avg={avgFunction}
